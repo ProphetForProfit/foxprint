@@ -1,0 +1,2964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1,
+             maximum-scale=1,
+             viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#09090c">
+
+<title>FoxPrint • Kobra S1</title>
+
+<style>
+
+/* =========================================================
+   FOXPRINT
+   iPhone 17 Pro Max — Phone First
+   ========================================================= */
+
+:root {
+
+    --bg: #09090c;
+    --bg2: #101014;
+
+    --card: rgba(25,25,32,.82);
+    --card-solid: #19191f;
+
+    --orange: #ff7518;
+    --orange-light: #ff9a4d;
+    --orange-dark: #c94d00;
+
+    --text: #f7f7f8;
+    --muted: #9999a5;
+    --dim: #666670;
+
+    --line: rgba(255,255,255,.08);
+
+    --green: #6fe28a;
+    --red: #ff5d5d;
+
+    --radius: 20px;
+
+    --nav-height: 76px;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html {
+    background: var(--bg);
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -15%,
+            rgba(255,117,24,.22),
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 100% 70%,
+            rgba(255,117,24,.06),
+            transparent 35%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Segoe UI",
+        sans-serif;
+
+    overscroll-behavior-y: none;
+
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: auto;
+
+    min-height: 100dvh;
+
+    padding:
+
+        max(14px, env(safe-area-inset-top))
+
+        16px
+
+        calc(
+            var(--nav-height)
+            + 30px
+            + env(safe-area-inset-bottom)
+        );
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    text-align: center;
+
+    padding: 10px 0 18px;
+
+}
+
+
+.fox {
+
+    font-size: 58px;
+
+    line-height: 1;
+
+    margin-bottom: 5px;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(255,117,24,.4)
+        );
+
+}
+
+
+.logo {
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: -.7px;
+
+}
+
+
+.logo span {
+
+    color: var(--orange-light);
+
+}
+
+
+.subtitle {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 3px;
+
+}
+
+
+/* =========================================================
+   PAGES
+   ========================================================= */
+
+.page {
+
+    display: none;
+
+}
+
+
+.page.active {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(30,30,38,.92),
+            rgba(17,17,22,.94)
+        );
+
+    border:
+
+        1px solid
+        var(--line);
+
+    border-radius: var(--radius);
+
+    padding: 17px;
+
+    margin-bottom: 13px;
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(0,0,0,.22);
+
+    backdrop-filter: blur(14px);
+
+}
+
+
+.section-title {
+
+    color: var(--orange-light);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 13px;
+
+}
+
+
+/* =========================================================
+   DESIGN SELECTOR
+   ========================================================= */
+
+.selector {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 62px;
+
+    background: #101015;
+
+    border: 1px solid var(--line);
+
+    border-radius: 15px;
+
+    padding: 12px 14px;
+
+    cursor: pointer;
+
+}
+
+
+.selector-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+}
+
+
+.selector-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 11px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+
+        rgba(255,117,24,.12);
+
+    font-size: 20px;
+
+}
+
+
+.selector-name {
+
+    font-weight: 800;
+
+    font-size: 16px;
+
+}
+
+
+.selector-detail {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 2px;
+
+}
+
+
+.chevron {
+
+    color: var(--muted);
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+label {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 11px 13px;
+
+    border-radius: 12px;
+
+    border:
+
+        1px solid
+        var(--line);
+
+    background: #0d0d12;
+
+    color: var(--text);
+
+    font-size: 17px;
+
+    outline: none;
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: var(--orange);
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(255,117,24,.12);
+
+}
+
+
+.grid-2 {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+}
+
+
+.field {
+
+    margin-bottom: 13px;
+
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.result {
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding: 22px 15px;
+
+    margin-bottom: 13px;
+
+    border-radius: 22px;
+
+    border:
+
+        1px solid
+        rgba(255,117,24,.35);
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,117,24,.20),
+            transparent 65%
+        ),
+
+        #141116;
+
+    box-shadow:
+
+        0 15px 45px
+        rgba(255,117,24,.07);
+
+}
+
+
+.result::after {
+
+    content: "🦊";
+
+    position: absolute;
+
+    right: -12px;
+
+    bottom: -30px;
+
+    font-size: 120px;
+
+    opacity: .035;
+
+    pointer-events: none;
+
+}
+
+
+.result-label {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.price {
+
+    color: var(--orange-light);
+
+    font-size: 58px;
+
+    line-height: 1;
+
+    font-weight: 950;
+
+    margin: 8px 0;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+
+        0 0 28px
+        rgba(255,117,24,.25);
+
+}
+
+
+.break-even {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   COST BREAKDOWN
+   ========================================================= */
+
+.row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom:
+
+        1px solid
+        var(--line);
+
+}
+
+
+.row:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.row span {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+.row strong {
+
+    font-size: 14px;
+
+}
+
+
+.total strong {
+
+    color: var(--orange-light);
+
+}
+
+
+/* =========================================================
+   DESIGN CARDS
+   ========================================================= */
+
+.design-card {
+
+    position: relative;
+
+    padding: 16px;
+
+    background: var(--card);
+
+    border: 1px solid var(--line);
+
+    border-radius: 17px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.design-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+}
+
+
+.design-name {
+
+    font-size: 17px;
+
+    font-weight: 850;
+
+}
+
+
+.design-material {
+
+    color: var(--orange-light);
+
+    font-size: 12px;
+
+    margin-top: 3px;
+
+}
+
+
+.design-stats {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 14px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.design-price {
+
+    margin-top: 13px;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+}
+
+
+.icon-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: #24242d;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    font-size: 16px;
+
+    font-weight: 850;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange-dark)
+        );
+
+    box-shadow:
+
+        0 7px 20px
+        rgba(255,117,24,.18);
+
+}
+
+
+.button:active {
+
+    transform: scale(.98);
+
+}
+
+
+.button.secondary {
+
+    background: #24242d;
+
+    box-shadow: none;
+
+}
+
+
+.button-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+}
+
+
+/* =========================================================
+   BOTTOM NAV
+   ========================================================= */
+
+.bottom-nav {
+
+    position: fixed;
+
+    z-index: 100;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height:
+
+        calc(
+            var(--nav-height)
+            + env(safe-area-inset-bottom)
+        );
+
+    padding-bottom:
+
+        env(safe-area-inset-bottom);
+
+    background:
+
+        rgba(12,12,16,.91);
+
+    border-top:
+
+        1px solid
+        var(--line);
+
+    backdrop-filter: blur(22px);
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.nav-inner {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+}
+
+
+.nav-button {
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--dim);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+}
+
+
+.nav-button .icon {
+
+    font-size: 22px;
+
+    line-height: 1;
+
+}
+
+
+.nav-button.active {
+
+    color: var(--orange-light);
+
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 200;
+
+    inset: 0;
+
+    background:
+
+        rgba(0,0,0,.68);
+
+    backdrop-filter: blur(8px);
+
+    align-items: flex-end;
+
+}
+
+
+.modal.show {
+
+    display: flex;
+
+}
+
+
+.modal-sheet {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: auto auto 0;
+
+    padding:
+
+        20px
+
+        18px
+
+        calc(
+            22px
+            + env(safe-area-inset-bottom)
+        );
+
+    background: #15151c;
+
+    border-radius:
+
+        24px
+        24px
+        0
+        0;
+
+    border-top:
+
+        1px solid
+        var(--line);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+}
+
+
+.modal-title {
+
+    font-size: 21px;
+
+    font-weight: 900;
+
+    margin-bottom: 17px;
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty {
+
+    text-align: center;
+
+    padding: 35px 15px;
+
+    color: var(--muted);
+
+}
+
+
+.empty-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 700px) {
+
+    body {
+
+        padding-top: 25px;
+
+    }
+
+    .app {
+
+        max-width: 520px;
+
+    }
+
+    .bottom-nav {
+
+        border-radius: 18px 18px 0 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 370px) {
+
+    .app {
+
+        padding-left: 12px;
+        padding-right: 12px;
+
+    }
+
+    .price {
+
+        font-size: 50px;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     CALCULATOR PAGE
+     ===================================================== -->
+
+<section
+    id="page-calc"
+    class="page active"
+>
+
+    <header class="header">
+
+        <div class="fox">
+            🦊
+        </div>
+
+        <div class="logo">
+            Fox<span>Print</span>
+        </div>
+
+        <div class="subtitle">
+            Anycubic Kobra S1
+        </div>
+
+    </header>
+
+
+    <!-- DESIGN -->
+
+    <div class="card">
+
+        <div class="section-title">
+            Current Print
+        </div>
+
+
+        <div
+            class="selector"
+            onclick="openDesignPicker()"
+        >
+
+            <div class="selector-left">
+
+                <div class="selector-icon">
+                    🖨️
+                </div>
+
+                <div>
+
+                    <div
+                        id="selectedDesignName"
+                        class="selector-name"
+                    >
+                        Custom Print
+                    </div>
+
+                    <div
+                        id="selectedDesignDetail"
+                        class="selector-detail"
+                    >
+                        Enter your print details
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="chevron">
+                ›
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK INPUT -->
+
+    <div class="card">
+
+        <div class="section-title">
+            Print Details
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Material
+            </label>
+
+            <select id="materialSelect">
+            </select>
+
+        </div>
+
+
+        <div class="grid-2">
+
+            <div class="field">
+
+                <label>
+                    Filament (g)
+                </label>
+
+                <input
+                    id="grams"
+                    type="number"
+                    inputmode="decimal"
+                    placeholder="183"
+                    step="1"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Print Time (hours)
+                </label>
+
+                <input
+                    id="hours"
+                    type="number"
+                    inputmode="decimal"
+                    placeholder="6.7"
+                    step="0.1"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="result">
+
+        <div class="result-label">
+            Suggested Cash Price
+        </div>
+
+
+        <div
+            id="finalPrice"
+            class="price"
+        >
+            $0
+        </div>
+
+
+        <div class="break-even">
+
+            True cost:
+            <span id="breakEven">
+                $0.00
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- BREAKDOWN -->
+
+    <div class="card">
+
+        <div class="section-title">
+            Cost Breakdown
+        </div>
+
+
+        <div class="row">
+
+            <span>
+                🧵 Filament
+            </span>
+
+            <strong id="filamentCost">
+                $0.00
+            </strong>
+
+        </div>
+
+
+        <div class="row">
+
+            <span>
+                ⚡ Electricity
+            </span>
+
+            <strong id="electricCost">
+                $0.00
+            </strong>
+
+        </div>
+
+
+        <div class="row">
+
+            <span>
+                🔧 Machine wear
+            </span>
+
+            <strong id="maintenanceCost">
+                $0.00
+            </strong>
+
+        </div>
+
+
+        <div class="row">
+
+            <span>
+                ⏱️ Your time
+            </span>
+
+            <strong id="laborCost">
+                $0.00
+            </strong>
+
+        </div>
+
+
+        <div class="row">
+
+            <span>
+                🛡️ 10% cushion
+            </span>
+
+            <strong id="overheadCost">
+                $0.00
+            </strong>
+
+        </div>
+
+
+        <div class="row total">
+
+            <span>
+                True cost
+            </span>
+
+            <strong id="baseCost">
+                $0.00
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MATERIALS PAGE
+     ===================================================== -->
+
+<section
+    id="page-materials"
+    class="page"
+>
+
+    <header class="header">
+
+        <div class="fox">
+            🦊
+        </div>
+
+        <div class="logo">
+            Materials
+        </div>
+
+        <div class="subtitle">
+            Your Anycubic filament costs
+        </div>
+
+    </header>
+
+
+    <div
+        id="materialsList"
+    ></div>
+
+
+    <button
+        class="button"
+        onclick="openMaterialModal()"
+    >
+        ＋ Add Material
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     DESIGNS PAGE
+     ===================================================== -->
+
+<section
+    id="page-designs"
+    class="page"
+>
+
+    <header class="header">
+
+        <div class="fox">
+            🦊
+        </div>
+
+        <div class="logo">
+            Saved Designs
+        </div>
+
+        <div class="subtitle">
+            Your frequently printed parts
+        </div>
+
+    </header>
+
+
+    <div
+        id="designsList"
+    ></div>
+
+
+    <button
+        class="button"
+        onclick="openDesignModal()"
+    >
+        ＋ Add Design
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     SETTINGS PAGE
+     ===================================================== -->
+
+<section
+    id="page-settings"
+    class="page"
+>
+
+    <header class="header">
+
+        <div class="fox">
+            🦊
+        </div>
+
+        <div class="logo">
+            Settings
+        </div>
+
+        <div class="subtitle">
+            FoxPrint configuration
+        </div>
+
+    </header>
+
+
+    <div class="card">
+
+        <div class="section-title">
+            Machine
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Average Kobra S1 Power (W)
+            </label>
+
+            <input
+                id="settingPower"
+                type="number"
+                value="180"
+                step="5"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Electricity ($/kWh)
+            </label>
+
+            <input
+                id="settingElectricity"
+                type="number"
+                value="0.20"
+                step="0.01"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Machine Wear ($/hour)
+            </label>
+
+            <input
+                id="settingMaintenance"
+                type="number"
+                value="0.15"
+                step="0.01"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="section-title">
+            Your Time
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Your Time ($/hour)
+            </label>
+
+            <input
+                id="settingTime"
+                type="number"
+                value="10"
+                step="1"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Setup Time (minutes)
+            </label>
+
+            <input
+                id="settingSetup"
+                type="number"
+                value="10"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="section-title">
+            Pricing
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Material Buffer (%)
+            </label>
+
+            <input
+                id="settingBuffer"
+                type="number"
+                value="10"
+                step="1"
+            >
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="button secondary"
+        onclick="resetEverything()"
+    >
+        Reset All Data
+    </button>
+
+</section>
+
+
+</div>
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+     ===================================================== -->
+
+<nav class="bottom-nav">
+
+<div class="nav-inner">
+
+
+<button
+    class="nav-button active"
+    data-page="calc"
+    onclick="showPage('calc')"
+>
+
+    <span class="icon">
+        🧮
+    </span>
+
+    Calc
+
+</button>
+
+
+<button
+    class="nav-button"
+    data-page="materials"
+    onclick="showPage('materials')"
+>
+
+    <span class="icon">
+        🧵
+    </span>
+
+    Materials
+
+</button>
+
+
+<button
+    class="nav-button"
+    data-page="designs"
+    onclick="showPage('designs')"
+>
+
+    <span class="icon">
+        🖨️
+    </span>
+
+    Designs
+
+</button>
+
+
+<button
+    class="nav-button"
+    data-page="settings"
+    onclick="showPage('settings')"
+>
+
+    <span class="icon">
+        ⚙️
+    </span>
+
+    Settings
+
+</button>
+
+
+</div>
+
+</nav>
+
+
+<!-- =====================================================
+     DESIGN MODAL
+     ===================================================== -->
+
+<div
+    id="designModal"
+    class="modal"
+>
+
+<div class="modal-sheet">
+
+    <div class="modal-title">
+        Add Print Design
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            Design Name
+        </label>
+
+        <input
+            id="designNameInput"
+            placeholder="Handbasket 01"
+        >
+
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            Material
+        </label>
+
+        <select
+            id="designMaterialInput"
+        ></select>
+
+    </div>
+
+
+    <div class="grid-2">
+
+        <div class="field">
+
+            <label>
+                Filament (g)
+            </label>
+
+            <input
+                id="designGramsInput"
+                type="number"
+                inputmode="decimal"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Print Time (hours)
+            </label>
+
+            <input
+                id="designHoursInput"
+                type="number"
+                inputmode="decimal"
+                step=".1"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="button-row">
+
+        <button
+            class="button secondary"
+            onclick="closeModal('designModal')"
+        >
+            Cancel
+        </button>
+
+
+        <button
+            class="button"
+            onclick="saveDesign()"
+        >
+            Save Design
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MATERIAL MODAL
+     ===================================================== -->
+
+<div
+    id="materialModal"
+    class="modal"
+>
+
+<div class="modal-sheet">
+
+    <div class="modal-title">
+        Add Material
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            Material Name
+        </label>
+
+        <input
+            id="materialNameInput"
+            placeholder="PETG"
+        >
+
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            Anycubic Price ($/kg)
+        </label>
+
+        <input
+            id="materialPriceInput"
+            type="number"
+            inputmode="decimal"
+            step=".01"
+            placeholder="19.54"
+        >
+
+    </div>
+
+
+    <div class="button-row">
+
+        <button
+            class="button secondary"
+            onclick="closeModal('materialModal')"
+        >
+            Cancel
+        </button>
+
+
+        <button
+            class="button"
+            onclick="saveMaterial()"
+        >
+            Save Material
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     DESIGN PICKER MODAL
+     ===================================================== -->
+
+<div
+    id="pickerModal"
+    class="modal"
+>
+
+<div class="modal-sheet">
+
+    <div class="modal-title">
+        Choose Design
+    </div>
+
+
+    <div
+        id="pickerList"
+    ></div>
+
+
+    <button
+        class="button secondary"
+        onclick="closeModal('pickerModal')"
+    >
+        Cancel
+    </button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   DEFAULT DATA
+   ========================================================= */
+
+
+const defaultMaterials = [
+
+    {
+        id: crypto.randomUUID(),
+        name: "PLA Basic",
+        price: 20.69
+    },
+
+    {
+        id: crypto.randomUUID(),
+        name: "PLA+",
+        price: 21.84
+    },
+
+    {
+        id: crypto.randomUUID(),
+        name: "PETG",
+        price: 19.54
+    },
+
+    {
+        id: crypto.randomUUID(),
+        name: "PETG-CF",
+        price: 25.99
+    },
+
+    {
+        id: crypto.randomUUID(),
+        name: "ASA",
+        price: 27.59
+    }
+
+];
+
+
+let materials =
+    JSON.parse(
+        localStorage.getItem("foxMaterials")
+    )
+    ||
+    defaultMaterials;
+
+
+let designs =
+    JSON.parse(
+        localStorage.getItem("foxDesigns")
+    )
+    ||
+    [];
+
+
+let settings =
+    JSON.parse(
+        localStorage.getItem("foxSettings")
+    )
+    ||
+    {
+
+        power: 180,
+
+        electricity: .20,
+
+        maintenance: .15,
+
+        time: 10,
+
+        setup: 10,
+
+        buffer: 10
+
+    };
+
+
+let currentDesign = null;
+
+
+/* =========================================================
+   SAVE
+   ========================================================= */
+
+
+function saveAll() {
+
+    localStorage.setItem(
+        "foxMaterials",
+        JSON.stringify(materials)
+    );
+
+    localStorage.setItem(
+        "foxDesigns",
+        JSON.stringify(designs)
+    );
+
+    localStorage.setItem(
+        "foxSettings",
+        JSON.stringify(settings)
+    );
+
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+   ========================================================= */
+
+
+function showPage(page) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(
+            p =>
+            p.classList.remove("active")
+        );
+
+
+    document
+        .getElementById(
+            "page-" + page
+        )
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(
+            b =>
+            b.classList.toggle(
+                "active",
+                b.dataset.page === page
+            )
+        );
+
+
+    if(page === "materials")
+        renderMaterials();
+
+
+    if(page === "designs")
+        renderDesigns();
+
+}
+
+
+/* =========================================================
+   MATERIAL SELECTORS
+   ========================================================= */
+
+
+function populateMaterialSelectors() {
+
+    const main =
+        document.getElementById(
+            "materialSelect"
+        );
+
+
+    const design =
+        document.getElementById(
+            "designMaterialInput"
+        );
+
+
+    const html =
+        materials
+            .map(
+                m =>
+                `<option value="${m.id}">
+                    ${m.name}
+                </option>`
+            )
+            .join("");
+
+
+    main.innerHTML = html;
+
+    design.innerHTML = html;
+
+}
+
+
+/* =========================================================
+   MATERIALS PAGE
+   ========================================================= */
+
+
+function renderMaterials() {
+
+    const list =
+        document.getElementById(
+            "materialsList"
+        );
+
+
+    if(!materials.length) {
+
+        list.innerHTML = `
+
+            <div class="card empty">
+
+                <div class="empty-icon">
+                    🧵
+                </div>
+
+                No materials yet.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        materials
+            .map(
+                m => {
+
+                    const effective =
+                        m.price *
+                        (1 + settings.buffer / 100);
+
+
+                    return `
+
+                        <div class="design-card">
+
+                            <div class="design-top">
+
+                                <div>
+
+                                    <div class="design-name">
+                                        🧵 ${m.name}
+                                    </div>
+
+                                    <div class="design-material">
+                                        Anycubic: $${m.price.toFixed(2)}/kg
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    class="icon-button"
+                                    onclick="deleteMaterial('${m.id}')"
+                                >
+                                    🗑️
+                                </button>
+
+                            </div>
+
+
+                            <div class="design-price">
+
+                                $${effective.toFixed(2)}/kg
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   ADD MATERIAL
+   ========================================================= */
+
+
+function openMaterialModal() {
+
+    document.getElementById(
+        "materialNameInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "materialPriceInput"
+    ).value = "";
+
+
+    document
+        .getElementById(
+            "materialModal"
+        )
+        .classList.add("show");
+
+}
+
+
+function saveMaterial() {
+
+    const name =
+        document.getElementById(
+            "materialNameInput"
+        ).value.trim();
+
+
+    const price =
+        parseFloat(
+            document.getElementById(
+                "materialPriceInput"
+            ).value
+        );
+
+
+    if(!name || !price)
+        return;
+
+
+    materials.push({
+
+        id: crypto.randomUUID(),
+
+        name,
+
+        price
+
+    });
+
+
+    saveAll();
+
+    populateMaterialSelectors();
+
+    closeModal("materialModal");
+
+    renderMaterials();
+
+}
+
+
+/* =========================================================
+   DELETE MATERIAL
+   ========================================================= */
+
+
+function deleteMaterial(id) {
+
+    if(!confirm(
+        "Delete this material?"
+    ))
+        return;
+
+
+    materials =
+        materials.filter(
+            m => m.id !== id
+        );
+
+
+    saveAll();
+
+    populateMaterialSelectors();
+
+    renderMaterials();
+
+}
+
+
+/* =========================================================
+   DESIGNS
+   ========================================================= */
+
+
+function renderDesigns() {
+
+    const list =
+        document.getElementById(
+            "designsList"
+        );
+
+
+    if(!designs.length) {
+
+        list.innerHTML = `
+
+            <div class="card empty">
+
+                <div class="empty-icon">
+                    🖨️
+                </div>
+
+                <div>
+                    No saved designs yet.
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        designs
+            .map(
+                d => {
+
+                    const material =
+                        materials.find(
+                            m =>
+                            m.id ===
+                            d.materialId
+                        );
+
+
+                    const cost =
+                        calculateValues(
+                            d.grams,
+                            d.hours,
+                            d.materialId
+                        );
+
+
+                    return `
+
+                        <div class="design-card">
+
+                            <div class="design-top">
+
+                                <div>
+
+                                    <div class="design-name">
+                                        🖨️ ${d.name}
+                                    </div>
+
+                                    <div class="design-material">
+                                        ${material?.name || "Unknown"}
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                    class="icon-button"
+                                    onclick="deleteDesign('${d.id}')"
+                                >
+                                    🗑️
+                                </button>
+
+                            </div>
+
+
+                            <div class="design-stats">
+
+                                <span>
+                                    ⚖️ ${d.grams}g
+                                </span>
+
+                                <span>
+                                    ⏱️ ${d.hours}h
+                                </span>
+
+                            </div>
+
+
+                            <div class="design-price">
+
+                                $${cost.price}
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   ADD DESIGN
+   ========================================================= */
+
+
+function openDesignModal() {
+
+    document.getElementById(
+        "designNameInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "designGramsInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "designHoursInput"
+    ).value = "";
+
+
+    populateMaterialSelectors();
+
+
+    document
+        .getElementById(
+            "designModal"
+        )
+        .classList.add("show");
+
+}
+
+
+function saveDesign() {
+
+    const name =
+        document
+            .getElementById(
+                "designNameInput"
+            )
+            .value
+            .trim();
+
+
+    const materialId =
+        document.getElementById(
+            "designMaterialInput"
+        ).value;
+
+
+    const grams =
+        parseFloat(
+            document.getElementById(
+                "designGramsInput"
+            ).value
+        );
+
+
+    const hours =
+        parseFloat(
+            document.getElementById(
+                "designHoursInput"
+            ).value
+        );
+
+
+    if(
+        !name ||
+        !grams ||
+        !hours
+    )
+        return;
+
+
+    designs.push({
+
+        id: crypto.randomUUID(),
+
+        name,
+
+        materialId,
+
+        grams,
+
+        hours
+
+    });
+
+
+    saveAll();
+
+    closeModal("designModal");
+
+    renderDesigns();
+
+}
+
+
+/* =========================================================
+   DELETE DESIGN
+   ========================================================= */
+
+
+function deleteDesign(id) {
+
+    if(!confirm(
+        "Delete this design?"
+    ))
+        return;
+
+
+    designs =
+        designs.filter(
+            d => d.id !== id
+        );
+
+
+    saveAll();
+
+    renderDesigns();
+
+}
+
+
+/* =========================================================
+   DESIGN PICKER
+   ========================================================= */
+
+
+function openDesignPicker() {
+
+    const list =
+        document.getElementById(
+            "pickerList"
+        );
+
+
+    list.innerHTML = `
+
+        <div
+            class="design-card"
+            onclick="selectCustom()"
+        >
+
+            <div class="design-name">
+                ✏️ Custom Print
+            </div>
+
+            <div class="design-material">
+                Enter values manually
+            </div>
+
+        </div>
+
+    `;
+
+
+    designs.forEach(
+        d => {
+
+            const material =
+                materials.find(
+                    m =>
+                    m.id ===
+                    d.materialId
+                );
+
+
+            list.innerHTML += `
+
+                <div
+                    class="design-card"
+                    onclick="selectDesign('${d.id}')"
+                >
+
+                    <div class="design-name">
+                        🖨️ ${d.name}
+                    </div>
+
+                    <div class="design-material">
+                        ${material?.name || "Unknown"}
+                    </div>
+
+                    <div class="design-stats">
+                        ⚖️ ${d.grams}g
+                        &nbsp;
+                        ⏱️ ${d.hours}h
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    document
+        .getElementById(
+            "pickerModal"
+        )
+        .classList.add("show");
+
+}
+
+
+function selectCustom() {
+
+    currentDesign = null;
+
+    document.getElementById(
+        "selectedDesignName"
+    ).innerText =
+        "Custom Print";
+
+
+    document.getElementById(
+        "selectedDesignDetail"
+    ).innerText =
+        "Enter your print details";
+
+
+    document.getElementById(
+        "grams"
+    ).value = "";
+
+
+    document.getElementById(
+        "hours"
+    ).value = "";
+
+
+    closeModal("pickerModal");
+
+    calculate();
+
+}
+
+
+function selectDesign(id) {
+
+    const d =
+        designs.find(
+            x => x.id === id
+        );
+
+
+    if(!d)
+        return;
+
+
+    currentDesign = d;
+
+
+    const material =
+        materials.find(
+            m =>
+            m.id ===
+            d.materialId
+        );
+
+
+    document.getElementById(
+        "selectedDesignName"
+    ).innerText =
+        d.name;
+
+
+    document.getElementById(
+        "selectedDesignDetail"
+    ).innerText =
+        `${material?.name || "Material"} • ${d.grams}g • ${d.hours}h`;
+
+
+    document.getElementById(
+        "grams"
+    ).value =
+        d.grams;
+
+
+    document.getElementById(
+        "hours"
+    ).value =
+        d.hours;
+
+
+    document.getElementById(
+        "materialSelect"
+    ).value =
+        d.materialId;
+
+
+    closeModal("pickerModal");
+
+    calculate();
+
+}
+
+
+/* =========================================================
+   CALCULATOR
+   ========================================================= */
+
+
+function calculateValues(
+    grams,
+    hours,
+    materialId
+) {
+
+    const material =
+        materials.find(
+            m =>
+            m.id === materialId
+        );
+
+
+    if(!material)
+        return {
+
+            filament: 0,
+            electricity: 0,
+            maintenance: 0,
+            labor: 0,
+            overhead: 0,
+            total: 0,
+            price: "0.00"
+
+        };
+
+
+    const materialCost =
+        material.price *
+        (1 + settings.buffer / 100);
+
+
+    const filament =
+        grams *
+        (materialCost / 1000);
+
+
+    const electricity =
+        hours *
+        settings.power /
+        1000 *
+        settings.electricity;
+
+
+    const maintenance =
+        hours *
+        settings.maintenance;
+
+
+    const labor =
+        settings.setup /
+        60 *
+        settings.time;
+
+
+    const base =
+        filament +
+        electricity +
+        maintenance +
+        labor;
+
+
+    const overhead =
+        base *
+        settings.buffer /
+        100;
+
+
+    const total =
+        base +
+        overhead;
+
+
+    return {
+
+        filament,
+
+        electricity,
+
+        maintenance,
+
+        labor,
+
+        overhead,
+
+        total,
+
+        price:
+            Math.ceil(total)
+
+    };
+
+}
+
+
+function calculate() {
+
+    const grams =
+        parseFloat(
+            document.getElementById(
+                "grams"
+            ).value
+        ) || 0;
+
+
+    const hours =
+        parseFloat(
+            document.getElementById(
+                "hours"
+            ).value
+        ) || 0;
+
+
+    const materialId =
+        document.getElementById(
+            "materialSelect"
+        ).value;
+
+
+    const values =
+        calculateValues(
+            grams,
+            hours,
+            materialId
+        );
+
+
+    document.getElementById(
+        "filamentCost"
+    ).innerText =
+        "$" +
+        values.filament.toFixed(2);
+
+
+    document.getElementById(
+        "electricCost"
+    ).innerText =
+        "$" +
+        values.electricity.toFixed(2);
+
+
+    document.getElementById(
+        "maintenanceCost"
+    ).innerText =
+        "$" +
+        values.maintenance.toFixed(2);
+
+
+    document.getElementById(
+        "laborCost"
+    ).innerText =
+        "$" +
+        values.labor.toFixed(2);
+
+
+    document.getElementById(
+        "overheadCost"
+    ).innerText =
+        "$" +
+        values.overhead.toFixed(2);
+
+
+    document.getElementById(
+        "baseCost"
+    ).innerText =
+        "$" +
+        values.total.toFixed(2);
+
+
+    document.getElementById(
+        "breakEven"
+    ).innerText =
+        "$" +
+        values.total.toFixed(2);
+
+
+    document.getElementById(
+        "finalPrice"
+    ).innerText =
+        "$" +
+        values.price;
+
+}
+
+
+/* =========================================================
+   SETTINGS
+   ========================================================= */
+
+
+function loadSettingsUI() {
+
+    document.getElementById(
+        "settingPower"
+    ).value =
+        settings.power;
+
+
+    document.getElementById(
+        "settingElectricity"
+    ).value =
+        settings.electricity;
+
+
+    document.getElementById(
+        "settingMaintenance"
+    ).value =
+        settings.maintenance;
+
+
+    document.getElementById(
+        "settingTime"
+    ).value =
+        settings.time;
+
+
+    document.getElementById(
+        "settingSetup"
+    ).value =
+        settings.setup;
+
+
+    document.getElementById(
+        "settingBuffer"
+    ).value =
+        settings.buffer;
+
+}
+
+
+function saveSettingsUI() {
+
+    settings.power =
+        parseFloat(
+            document.getElementById(
+                "settingPower"
+            ).value
+        ) || 0;
+
+
+    settings.electricity =
+        parseFloat(
+            document.getElementById(
+                "settingElectricity"
+            ).value
+        ) || 0;
+
+
+    settings.maintenance =
+        parseFloat(
+            document.getElementById(
+                "settingMaintenance"
+            ).value
+        ) || 0;
+
+
+    settings.time =
+        parseFloat(
+            document.getElementById(
+                "settingTime"
+            ).value
+        ) || 0;
+
+
+    settings.setup =
+        parseFloat(
+            document.getElementById(
+                "settingSetup"
+            ).value
+        ) || 0;
+
+
+    settings.buffer =
+        parseFloat(
+            document.getElementById(
+                "settingBuffer"
+            ).value
+        ) || 0;
+
+
+    saveAll();
+
+    calculate();
+
+}
+
+
+document
+    .querySelectorAll(
+        "#page-settings input"
+    )
+    .forEach(
+        input =>
+        input.addEventListener(
+            "input",
+            saveSettingsUI
+        )
+    );
+
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+
+function resetEverything() {
+
+    if(
+        !confirm(
+            "Delete ALL FoxPrint data?"
+        )
+    )
+        return;
+
+
+    localStorage.clear();
+
+    location.reload();
+
+}
+
+
+/* =========================================================
+   STARTUP
+   ========================================================= */
+
+
+populateMaterialSelectors();
+
+loadSettingsUI();
+
+document
+    .getElementById(
+        "materialSelect"
+    )
+    .addEventListener(
+        "change",
+        calculate
+    );
+
+
+document
+    .getElementById(
+        "grams"
+    )
+    .addEventListener(
+        "input",
+        calculate
+    );
+
+
+document
+    .getElementById(
+        "hours"
+    )
+    .addEventListener(
+        "input",
+        calculate
+    );
+
+
+calculate();
+
+</script>
+
+</body>
+</html>
